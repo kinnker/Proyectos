@@ -22,6 +22,7 @@ def generar_menu(opciones, opcion_salida):
         ejecutar_opcion(opcion, opciones)
         print()
 
+
 def menu_principal():
     opciones = {
         '1': ('Ingresar a la Venta', accion1),
@@ -35,7 +36,6 @@ def menu_principal():
     }
 
     generar_menu(opciones, '8')
-
 
 
 productos = {}
@@ -123,8 +123,11 @@ def agregar_stock():
     if producto in productos and cantidad_a_ingresar != 0:
         productos[producto][1] += cantidad_a_ingresar
         print(f"Se ingresaron {cantidad_a_ingresar} unidades de {producto}")
+    elif producto in productos and cantidad_a_ingresar == 0:
+        print(f"Imposible sumar 0 unidades")
     else:
-        print(f"El producto {producto} no se encuentra agregado o la cantidad a ingresar es 0")
+        print(f"El producto {producto} no se encuentra agregado")
+
 
 def cambiar_precio():
     global productos
@@ -136,7 +139,7 @@ def cambiar_precio():
     elif producto in productos and nuevo_precio == 0:
         print(f"Imposible asignarle 0 al precio")
     else:
-        print(f"El producto {producto} no se encuentra agregado o el nuevo precio es 0")
+        print(f"El producto {producto} no se encuentra agregado")
         
 
 def eliminar_producto_sistema():
